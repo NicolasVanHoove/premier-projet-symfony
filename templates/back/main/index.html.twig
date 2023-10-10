@@ -1,0 +1,82 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}CarStore - BackOffice{% endblock %}
+
+{% block body %}
+<h1>Bienvenue dans le <em>BackOffice</em></h1>
+
+<section id="back-home">
+
+    {# CAR'S TABLE #}
+    <table>
+        <thead>
+            <tr>
+            <th colspan="5">Les 5 dernières <em>Voitures</em> ajoutées</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th colspan="1" class="table-subtitle">Identifiant</th>
+            <th colspan="1" class="table-subtitle">Modèle</th>
+            <th colspan="1" class="table-subtitle">Marque</th>
+            <th colspan="1" class="table-subtitle">Modifier</th>
+            <th colspan="1" class="table-subtitle">Supprimer</th>
+            </tr>
+            {% for index, car in cars %}
+            <tr>   
+            <td>{{ car.id }}</td>
+            <td>{{ car.name }}</td>
+            <td>{{ car.brand.name }}</td>
+            <td><a href="{{ path('back_car_edit', {id: car.id}) }}">Modifier</a></td>
+            <td>
+                <form method="post" action="{{ path('back_car_delete', {id: car.id}) }}" onsubmit="return confirm('Etes vous sur de vouloir supprimer');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete-car-' ~ car.id) }}">
+                <button class="btn btn-danger">Supprimer</button>
+                </form>
+            </td>      
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+            <th colspan="5"><a href="{{ path("back_car_add") }}">Ajouter une voiture</a></th>
+            </tr>
+        </tfoot>
+    </table>
+
+    {# BRAND'S TABLE #}
+    <table>
+        <thead>
+            <tr>
+            <th colspan="4">Les 5 dernières <em>Marques</em> ajoutées</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th colspan="1" class="table-subtitle">Identifiant</th>
+            <th colspan="1" class="table-subtitle">Nom</th>
+            <th colspan="1" class="table-subtitle">Modifier</th>
+            <th colspan="1" class="table-subtitle">Supprimer</th>
+            </tr>
+            {% for index, brand in brands %}
+            <tr>   
+            <td>{{ brand.id }}</td>
+            <td>{{ brand.name }}</td>
+            <td><a href="{{ path('back_brand_edit', {id: brand.id}) }}">Modifier</a></td>
+            <td>
+                <form method="post" action="{{ path('back_brand_delete', {id: brand.id}) }}" onsubmit="return confirm('Etes vous sur de vouloir supprimer');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete-brand-' ~ brand.id) }}">
+                <button class="btn btn-danger">Supprimer</button>
+                </form>
+            </td>      
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+            <th colspan="5"><a href="{{ path("back_brand_add") }}">Ajouter une marque</a></th>
+            </tr>
+        </tfoot>
+    </table>
+</section>
+{% endblock %}

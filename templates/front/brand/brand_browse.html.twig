@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CarStore - Nos marques{% endblock %}
+
+{% block body %}
+<main id="brand-browse">
+
+<h2>Toutes Nos <em>Marques</em></h2>
+
+<section class="container-brand-browse">
+        {% for index, brand in brands %}
+        <div class="brand-card"> 
+            <h3>{{ brand.name }}</h3>
+            <img src="{{ brand.poster }}">
+            <a href="{{ path('front_brand_show', {id: brand.id}) }}">Voir les Modèles</a>
+        </div>
+        {% endfor %}
+</section>
+
+</main>
+{% endblock %}

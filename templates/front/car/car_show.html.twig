@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CarStore - Voiture{% endblock %}
+
+{% block body %}
+<section class="container-car-show">
+    <div class="car-show-left">
+        <img src="{{ car.poster }}" alt="...">
+    </div>
+    <div class="car-show-right">           
+        <div class="car-show-title">
+            <img src="{{car.brand.poster}}" id="car-show-logo">
+            <ul>
+                <li>Marque : {{ car.brand.name }}</li>
+                <li>Modèle : {{ car.name }}</li>
+                <li>Année de fabrication : {{ car.ReleaseDate|date('Y') }}</li>
+                <li>Prix : {{ car.price }} €</li>
+            </ul>
+        </div> 
+        <p>{{ car.description }}</p>
+    </div>      
+<section>
+{% endblock %}

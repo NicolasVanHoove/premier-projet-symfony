@@ -1,0 +1,29 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}CarStore -BackOffice{% endblock %}
+
+{% block body %}
+    <section class="container-car-show">
+        <div class="car-show-left">
+            <img src="{{ car.poster }}" alt="...">
+        </div>
+        <div class="car-show-right">           
+            <div class="car-show-title">
+                <img src="{{car.brand.poster}}" id="car-show-logo">
+                <ul>
+                    <li>Marque : {{ car.brand.name }}</li>
+                    <li>Modèle : {{ car.name }}</li>
+                    <li>Année de fabrication : {{ car.ReleaseDate|date('Y') }}</li>
+                    <li>Prix : {{ car.price }} €</li>
+                </ul>
+            </div> 
+            <p>{{ car.description }}</p>      
+    </section>
+    <div class="back-car-link">
+        <a href="{{ path('back_car_edit', {id: car.id}) }}">Modifier</a>
+        <form method="post" action="{{ path('back_car_delete', {id: car.id}) }}" onsubmit="return confirm('Etes vous sur de vouloir supprimer');">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete-car-' ~ car.id) }}">
+            <button class="btn btn-danger fs-4">Supprimer</button>
+        </form>
+    </div>
+{% endblock %}

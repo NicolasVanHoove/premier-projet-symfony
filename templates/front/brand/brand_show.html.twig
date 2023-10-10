@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The CarStore - Les Marques{% endblock %}
+
+{% block body %}
+<main id="brand-browse">
+
+<h2 class="brand-show-title">Tous Nos Modèles <em>{{brand.name}}</em></h2>
+<section class="container-car-browse">
+        {% for index, car in brand.cars %}
+        <div class="car-card"> 
+            <h3>{{ car.brand.name }} - {{ car.name }}</h3>
+            <img src="{{ car.poster }}">
+            <a href="{{ path('front_car_show', {id: car.id}) }}">Voir la voiture</a>
+        </div>
+        {% endfor %}
+</section>
+
+</main>
+{% endblock %}

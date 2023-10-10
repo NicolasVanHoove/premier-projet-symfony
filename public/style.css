@@ -1,0 +1,305 @@
+body {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    font-family: 'Urbanist', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#container-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+#container-browse {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+}
+
+#container-articles article{
+    display: flex;
+}
+
+/* NAV */
+
+nav {
+    background-color: black;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;  
+    border: 2px solid goldenrod;
+    border-radius: 15px;
+    margin: 1rem;
+    padding: 1rem 0rem;
+}
+
+nav a {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    margin-right: 1.5rem;
+    font-size: 1rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.nav-title {
+    color: goldenrod;
+    font-weight: bold;
+    margin: 2rem 0rem 2rem -1.5rem;
+}
+
+/* ----------- */
+/* FRONTOFFICE */
+/* ----------- */
+
+/* Voiture de la semaine */
+
+.container-car {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid goldenrod;
+    border-right: 1px solid goldenrod;
+}
+
+.container-car a{
+    background-color: black;
+    color: goldenrod;
+    text-decoration: none;
+    padding: 0.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: -1rem;
+    border: 1px solid goldenrod;
+    border-radius: 15px;
+}
+
+.container-car-img {
+    width: 500px;
+    height: 400px;
+    margin-right: 2rem;
+}
+
+em {
+    font-style: normal;
+    font-weight: bold;
+    color: goldenrod;
+}
+
+/* Affichage de toutes les voitures */
+
+#car-browse {
+    margin: 3rem 1rem;
+}
+
+#car-browse h2{
+    text-align: center;
+}
+
+.container-car-browse {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 1.5rem 0rem;
+}
+
+.car-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0rem;
+    border: 1px solid goldenrod;
+    border-radius: 15px;
+}
+
+.car-card a{
+    background-color: black;
+    color: white;
+    border: 1px solid goldenrod;
+    border-radius: 15px;
+    margin-top: 1rem;
+    margin-bottom: -1.5rem;
+    padding: 0.3rem;
+    text-decoration: none;
+}
+
+.container-car-browse img{
+    width: 250px;
+    height: 200px;
+}
+
+/* Affichage d'une seule voiture */
+
+.container-car-show {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.car-show-left {
+    border-right: 1px solid goldenrod;
+    padding-right: 2rem;
+}
+
+.car-show-right {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2rem;
+}
+
+.car-show-title {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+#car-show-logo{
+    background-color: white;
+    height: 150px;
+    width: 100px;
+}
+
+.container-car-show img{
+    width: 500px;
+    height: 400px;
+}
+
+/* Affichage de toutes les marques */
+
+#brand-browse {
+    margin: 3rem 1rem;
+}
+
+#brand-browse h2{
+    text-align: center;
+}
+
+.container-brand-browse {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    gap: 1.5rem;
+    margin: 1.5rem 0rem;
+    justify-content: center;
+}
+
+.brand-card {
+    background-color: lightgray;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0rem;
+    border: 2px solid goldenrod;
+    border-radius: 15px;
+}
+
+.brand-card a{
+    background-color: lightgray;
+    color: black;
+    border: 2px solid goldenrod;
+    border-radius: 15px;
+    margin-top: 1rem;
+    margin-bottom: -1.5rem;
+    padding: 0.3rem;
+    text-decoration: none;
+}
+
+.container-brand-browse img{
+    width: 200px;
+    height: 250px;
+}
+
+/* ----------- */
+/* BACKOFFICE */
+/* ----------- */
+
+/* Page Home du Back Office et gestion des tableaux des Voitures et des Marques */
+
+#back-home {
+    display: flex;
+    justify-content: space-between;
+}
+
+table {
+    width: 45%;
+    margin: 2rem 1rem;
+    border: 2px solid goldenrod;
+}
+
+th {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid goldenrod;
+}
+
+th a {
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    border: 2px solid goldenrod;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.table-subtitle{
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+td {
+    text-align: center;
+    padding: 1rem;
+}
+
+td a {
+    background-color: darkgoldenrod;
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 1px transparent goldenrod;
+    border-radius: 5px;
+    padding: 0.5rem 1.4rem;
+}
+
+/* Affichage de toutes les voitures et de toutes les Marques */ 
+
+#table-back-browse {
+    width: 80%;
+    margin: 3rem auto;
+}
+
+/* Affichage d'une seule voiture */
+
+.back-car-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.back-car-link a {
+    background-color: darkgoldenrod;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: 1px transparent goldenrod;
+    border-radius: 5px;
+    padding: 0.5rem 1.3rem;
+    margin-right: 2rem;
+}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The CarStore - Home{% endblock %}
+
+{% block body %}
+
+<section id="container-home">
+{% for index, car in cars %}
+    <h2>La voiture de la semaine : <em>{{ car.brand.name }} {{ car.name }}<em></h2>       
+    <div class="container-car">                       
+        <img src="{{ car.poster }}" class="container-car-img" alt="Photo de ferrari F50">              
+        <a href="{{ path('front_car_show', {id: car.id}) }}" class="">Voir la voiture</a>        
+    </div>
+</section>
+{% endfor %}
+{% endblock %}

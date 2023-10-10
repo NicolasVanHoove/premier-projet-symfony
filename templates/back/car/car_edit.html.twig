@@ -1,0 +1,20 @@
+{% extends "base-back.html.twig" %}
+
+{% block body %}
+<div class="container bg-dark p-4">
+    <div class="row mb-2 fs-6">
+        <div class="col">
+            <h1>Modifier une Voiture</h1>
+            {{ form_start(carForm, {'attr' : {'novalidate': 'novalidate'} }) }}
+            {{ form_row(carForm.name) }}
+            {{ form_row(carForm.brand) }}
+            {{ form_row(carForm.price) }}
+            {{ form_row(carForm.release_date) }}
+            {{ form_row(carForm.poster) }}
+            {{ form_row(carForm.description) }}
+            <button class="btn btn-outline-warning d-grid gap-2 col-6 mx-auto fs-5">Modifier la voiture</button>
+            {{ form_end(carForm) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
