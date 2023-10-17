@@ -19,16 +19,22 @@
     {#Nav#}
     <nav>
         <div>
-            <a href="{{ path("home") }}">Accueil</a>
-            <a href="{{ path("front_car_browse") }}">Nos Voitures</a>
-            <a href="{{ path("front_brand_browse") }}">Nos Marques</a>
+            <a href="{{ path("home") }}" class="{% block front_home %}{% endblock %}">Accueil</a>
+            <a href="{{ path("front_car_browse") }}" class="{% block front_car %}{% endblock %}">Nos Voitures</a>
+            <a href="{{ path("front_brand_browse") }}" class="{% block front_brand %}{% endblock %}">Nos Marques</a>
         </div>
         <div>
             <h1 class="nav-title">The CarStore</h1>   
         </div>
         <div>
+            {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path("app_back_main") }}">BackOffice</a>
-            <a href="{{ path("app_login") }}">Se connecter</a>
+            {% endif %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a href="{{ path("app_logout") }}">Se déconnecter</a>
+            {% else %}
+            <a href="{{ path("app_login") }}" class="{% block app_login %}{% endblock %}">Se connecter</a>
+            {% endif %}
         </div>
     </nav>
 

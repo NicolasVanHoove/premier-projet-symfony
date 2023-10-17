@@ -18,16 +18,20 @@
         {#Nav#}
         <nav>
             <div>
-                <a href="{{ path("app_back_main") }}">Accueil</a>
-                <a href="{{ path("back_car_browse") }}">Gestion des Voitures</a>
-                <a href="{{ path("back_brand_browse") }}">Gestion des Marques</a>
+                <a href="{{ path("app_back_main") }}" class="{% block back_home %}{% endblock %}">Accueil</a>
+                <a href="{{ path("back_car_browse") }}" class="{% block back_car %}{% endblock %}">Gestion des Voitures</a>
+                <a href="{{ path("back_brand_browse") }}" class="{% block back_brand %}{% endblock %}">Gestion des Marques</a>
             </div>
             <div>
                 <h1 class="nav-title">The CarStore</h1>   
             </div>
             <div>
                 <a href="{{ path("home") }}">FrontOffice</a>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="{{ path("app_logout") }}">Se déconnecter</a>
+                {% else %}
                 <a href="{{ path("app_login") }}">Se connecter</a>
+                {% endif %}
             </div>
         </nav>
 
